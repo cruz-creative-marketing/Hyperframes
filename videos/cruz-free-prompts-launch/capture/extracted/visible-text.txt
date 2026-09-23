@@ -1,0 +1,49 @@
+[div] Free resource · No spam · Instant delivery
+[span] 15 client-tested AI prompts · free
+[h1] Stop making content that
+[em] looks AI-generated.
+[p] Free forever. Instant download. No spam.
+[p] Ready to sound like you, not like AI? Enter your email and we'll send all 15 prompts instantly.
+[label] Email address
+[button] Download
+[label] Leave this field blank
+[p] No spam. One useful email a week. Unsubscribe anytime.
+[span] On-brand graphics
+[span] Natural brand voice
+[span] Better product shots
+[div] Built from prompts used in real client work
+[p] See the difference
+[h2] Same AI. Better prompt. Completely different result.
+[div] ANY AI TOOL — GENERIC PROMPT
+[div] "Make me a poster promoting my business."
+[div] Looks like everyone else
+[div] CRUZ CREATIVE — OUR PROMPT
+[div] "Make me a poster in [brand]'s exact fonts, colours, and voice."
+[div] Looks like your brand
+[p] What's inside
+[h2] 15 prompts built for the content you actually create.
+[h3] Graphics that don’t look like ChatGPT. They look like your brand.
+[p] Your fonts, your colours, text big enough to read at thumbnail size. None of that grainy, flat, obviously-AI look everyone’s posting right now.
+[h3] A brand voice you can use to sound like you.
+[p] We all know the phrases AI overuses. Teach it to write the way you actually talk, then use that voice on reel scripts, captions, emails and newsletters.
+[h3] Product and people shots that save you thousands.
+[p] Turn a mediocre phone photo into a shoot-worthy asset, then spin it into a full set of scenes. One photo, a month of content, and the photographer’s invoice you never have to pay.
+[p] Used on brands like
+[h2] Proof, not promises.
+[span] Halcyon
+[span] Pro-Cut
+[span] Sky Schools
+[p] ★★★★★
+[p] "We used the brand voice prompt on our last three newsletters and our open rate actually went up. Feels like us, not like a chatbot."
+[div] Dolores Phillips
+[div] Project Director, Halcyon
+[div] 50+
+[div] businesses already using these prompts
+[a] ↑ Grab your free copy — same 15 prompts, real results.
+[p] Steal one now
+[h2] Here’s one of the 15 prompts, so you know exactly what you’re getting.
+[strong] PROMPT #7 — BRAND VOICE
+[code] Rewrite this caption in [Brand]'s exact voice — short, confident sentences, zero corporate jargon, and a CTA that reads like a friend's recommendation, not a sales pitch. Reference these three past posts to match tone: ···
+[h2] Your AI is capable of better. You just need to ask better.
+[p] Get all 15 prompts we use to create better graphics, sharper copy and more realistic product content.
+[a] Send me the 15 prompts →

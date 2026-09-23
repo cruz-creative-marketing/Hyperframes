@@ -1,0 +1,115 @@
+<!-- duration: 5.867 -->
+<style>
+      #f04-kicker { position: absolute; left: 72px; top: 150px; font-size: 26px; color: #a5f0b1; }
+      #f04-rule { position: absolute; left: 72px; top: 200px; width: 36px; height: 2px; background: #a5f0b1; }
+      .f04-card {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        height: 400px;
+        background: #141212;
+        border-top: 1px solid #2e2929;
+        border-bottom: 1px solid #2e2929;
+        will-change: transform;
+      }
+      #f04-c1 { top: 260px; }
+      #f04-c2 { top: 690px; }
+      #f04-c3 { top: 1120px; }
+      .f04-thumbs { position: absolute; left: 34px; top: 40px; width: 300px; height: 320px; }
+      .f04-thumbs img {
+        position: absolute;
+        width: 240px;
+        height: 320px;
+        object-fit: cover;
+        border: 1px solid #2e2929;
+      }
+      #f04-t1b { left: 60px; top: 0; }
+      #f04-t1a { left: 0; top: 0; }
+      #f04-t3 { left: 20px; top: 0; }
+      .f04-copy { position: absolute; left: 350px; right: 40px; top: 70px; }
+      #f04-c2 .f04-copy { left: 40px; top: 50px; }
+      .f04-num { font-size: 26px; color: #a5f0b1; margin-bottom: 18px; }
+      .f04-title {
+        font-weight: 800;
+        font-size: 64px;
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+        text-transform: lowercase;
+      }
+      #f04-glow { display: inline-block; color: #ffffff; }
+      #f04-code {
+        margin-top: 28px;
+        padding: 20px 24px;
+        background: #1e1a1a;
+        border-left: 3px solid #a5f0b1;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 1.45;
+        color: #cccccc;
+      }
+      #f04-code b { color: #a5f0b1; font-weight: 700; }
+</style>
+    <div id="f04-stage" class="clip" data-start="0" data-duration="5.867" data-track-index="1">
+      <div id="f04-kicker" class="mono">What's inside · 15 prompts</div>
+      <div id="f04-rule"></div>
+
+      <div class="f04-card" id="f04-c1">
+        <div class="f04-thumbs">
+          <img id="f04-t1b" src="assets/on-brand-ai-poster-for-a-gym-matches-the.webp" alt="On-brand gym poster" />
+          <img id="f04-t1a" src="assets/on-brand-3.webp" alt="On-brand burger poster" />
+        </div>
+        <div class="f04-copy">
+          <div class="f04-num mono">01 · Graphics</div>
+          <div class="f04-title">your fonts. your colours.</div>
+        </div>
+      </div>
+
+      <div class="f04-card" id="f04-c2">
+        <div class="f04-copy">
+          <div class="f04-num mono">02 · Brand voice</div>
+          <div class="f04-title">sounds like you, not like ai</div>
+          <div id="f04-code"><b>PROMPT #7</b> — short, confident sentences, zero corporate jargon…</div>
+        </div>
+      </div>
+
+      <div class="f04-card" id="f04-c3">
+        <div class="f04-thumbs">
+          <img id="f04-t3" src="assets/same-ai-better-prompt-completely-differe.webp" alt="On-brand bike product shot" />
+        </div>
+        <div class="f04-copy">
+          <div class="f04-num mono">03 · Product shots</div>
+          <div class="f04-title">one photo, <span id="f04-glow">a month of content</span></div>
+        </div>
+      </div>
+    </div>
+<script>
+      tl.fromTo(["#f04-kicker", "#f04-rule"], { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0.05);
+
+      // waterfall-entry: each card whips up into its slot on its spoken cue; its contents cascade in
+      // just behind it (each starting before the previous settles).
+      function arrive(card, parts, t) {
+        tl.fromTo(card, { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, t);
+        parts.forEach((p, i) =>
+          tl.fromTo(p, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, t + 0.1 + i * 0.08),
+        );
+      }
+      // fanned thumbnails keep their tilt inside the tween (no CSS transform to fight)
+      tl.fromTo("#f04-t1b", { y: 40, rotation: 6, opacity: 0 }, { y: 0, rotation: 6, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.12);
+      tl.fromTo("#f04-t1a", { y: 40, rotation: -4, opacity: 0 }, { y: 0, rotation: -4, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.2);
+      arrive("#f04-c1", ["#f04-c1 .f04-num", "#f04-c1 .f04-title"], 0.05);
+      arrive("#f04-c2", ["#f04-c2 .f04-num", "#f04-c2 .f04-title", "#f04-code"], 1.63);
+      arrive("#f04-c3", ["#f04-t3", "#f04-c3 .f04-num", "#f04-c3 .f04-title"], 3.59);
+
+      // asr-keyword-glow: the payoff phrase lights up on "thousands" on its word cue (attack → decay → rest in mint).
+      const glow = document.getElementById("f04-glow");
+      const env = { g: 0 };
+      const paint = () => {
+        glow.style.color = env.g > 0.02 ? "#a5f0b1" : "#ffffff";
+        glow.style.textShadow = "0 0 " + (28 * env.g).toFixed(1) + "px rgba(165,240,177," + (0.85 * env.g).toFixed(2) + ")";
+      };
+      tl.fromTo(env, { g: 0 }, { g: 1, duration: 0.12, ease: "power2.out", onUpdate: paint }, 5.22);
+      tl.fromTo(env, { g: 1 }, { g: 0.35, duration: 0.5, ease: "power2.inOut", onUpdate: paint, immediateRender: false }, 5.34);
+      tl.fromTo(glow, { scale: 1 }, { scale: 1.06, duration: 0.12, ease: "power2.out" }, 5.22);
+      tl.fromTo(glow, { scale: 1.06 }, { scale: 1, duration: 0.45, ease: "power3.out", immediateRender: false }, 5.34);
+</script>

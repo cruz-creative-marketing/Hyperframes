@@ -1,0 +1,160 @@
+<template>
+  <script src="assets/vendor/gsap-3.14.2.min.js"></script>
+  <style>
+      @font-face { font-family: "Montserrat"; font-weight: 400; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 600; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 700; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 800; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 900; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-900-normal.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-style: normal;
+        src: url("assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 700; font-style: normal;
+        src: url("assets/fonts/ibm-plex-mono-latin-700-normal.woff2") format("woff2"); }
+      #root {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+      }
+      #root .clip { position: absolute; inset: 0; }
+      #f05-ground { background: #0a0909; }
+      #root .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; }
+
+      #f05-kicker { position: absolute; left: 72px; top: 150px; font-size: 26px; color: #a5f0b1; }
+      #f05-rule { position: absolute; left: 72px; top: 200px; width: 36px; height: 2px; background: #a5f0b1; }
+      #f05-quote {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 250px;
+        padding: 44px 44px 40px;
+        background: #141212;
+        border-top: 1px solid #2e2929;
+      }
+      #f05-stars { color: #a5f0b1; font-size: 40px; letter-spacing: 0.12em; }
+      #f05-qtext {
+        margin-top: 18px;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 1.14;
+        letter-spacing: -0.02em;
+        text-transform: lowercase;
+      }
+      #f05-attr { margin-top: 30px; display: flex; align-items: center; gap: 22px; }
+      #f05-avatar { width: 84px; height: 84px; border-radius: 50%; background: #a5f0b1; color: #0a0909; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 32px; }
+      #f05-attr .mono { font-size: 21px; line-height: 1.45; color: #cccccc; }
+      #f05-attr .mono b { color: #ffffff; font-weight: 700; }
+      #f05-cam {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 800px;
+        height: 520px;
+        will-change: transform;
+      }
+      #f05-count {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        font-weight: 900;
+        font-size: 360px;
+        line-height: 0.9;
+        letter-spacing: -0.05em;
+        color: #a5f0b1;
+      }
+      #f05-n { display: inline-block; font-variant-numeric: tabular-nums; transform-origin: 50% 80%; }
+      #f05-plus { display: inline-block; }
+      #f05-label {
+        position: absolute;
+        left: 90px;
+        right: 90px;
+        top: 385px;
+        text-align: center;
+        font-weight: 800;
+        font-size: 58px;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        text-transform: lowercase;
+      }
+      #f05-logos {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 1400px;
+        display: flex;
+        justify-content: center;
+        gap: 28px;
+      }
+      #f05-logos img { width: 150px; height: 150px; object-fit: cover; background: #ffffff; }
+  </style>
+  <div id="root" data-composition-id="05-proof" data-start="0" data-duration="5.029" data-width="1080" data-height="1920">
+    <div id="f05-ground" class="clip" data-start="0" data-duration="5.029" data-track-index="0"></div>
+    <div id="f05-stage" class="clip" data-start="0" data-duration="5.029" data-track-index="1">
+      <div id="f05-kicker" class="mono">Proof, not promises</div>
+      <div id="f05-rule"></div>
+      <div id="f05-quote">
+        <div id="f05-stars">★★★★★</div>
+        <div id="f05-qtext">"our open rate actually went up. feels like us, not like a chatbot."</div>
+        <div id="f05-attr">
+          <div id="f05-avatar">DP</div>
+          <div class="mono"><b>Dolores Phillips</b> · Project Director, Halcyon</div>
+        </div>
+      </div>
+      <div id="f05-cam">
+        <div id="f05-count"><span id="f05-n">0</span><span id="f05-plus">+</span></div>
+        <div id="f05-label">businesses already using these prompts</div>
+      </div>
+      <div id="f05-logos">
+        <img id="f05-l1" src="assets/halcyon-group.webp" alt="Halcyon Group" />
+        <img id="f05-l2" src="assets/lake-company.webp" alt="Lake Company" />
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "05-proof";
+      const DUR = 4.629;
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1 — kicker, then the quote card whips up (waterfall-entry) on "built from real client work".
+      tl.fromTo(["#f05-kicker", "#f05-rule"], { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0.05);
+      tl.fromTo("#f05-quote", { y: 110, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.15);
+      ["#f05-stars", "#f05-qtext", "#f05-attr"].forEach((sel, i) =>
+        tl.fromTo(sel, { y: 36, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.28 + i * 0.1),
+      );
+
+      // Scene 2 — counting-dynamic-scale: 0 → 50, scale grows with the value, landing on "fifty" (3.42s).
+      const COUNT_AT = 2.21;
+      const COUNT_DUR = 3.42 - COUNT_AT;
+      const n = document.getElementById("f05-n");
+      const state = { v: 0 };
+      tl.fromTo("#f05-count", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "power1.out" }, COUNT_AT);
+      tl.fromTo(state, { v: 0 }, {
+        v: 50,
+        duration: COUNT_DUR,
+        ease: "power2.out",
+        onUpdate: () => (n.textContent = String(Math.round(state.v))),
+      }, COUNT_AT);
+      tl.fromTo("#f05-n", { scale: 0.35 }, { scale: 1, duration: COUNT_DUR, ease: "power2.out" }, COUNT_AT);
+      tl.fromTo("#f05-plus", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 3.42);
+      // multi-phase-camera: one short push-in on the instrument during the count, locked at the land.
+      tl.fromTo("#f05-cam", { scale: 0.94 }, { scale: 1, duration: COUNT_DUR + 0.1, ease: "power3.out" }, COUNT_AT);
+
+      // Scene 3 — the label on "businesses", then the client tiles settle beneath.
+      tl.fromTo("#f05-label", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 3.72);
+      tl.fromTo(["#f05-l1", "#f05-l2"], { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out", stagger: 0.1 }, 3.9);
+      tl.set({}, {}, DUR);
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

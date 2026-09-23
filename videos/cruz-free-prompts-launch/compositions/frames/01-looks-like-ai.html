@@ -1,0 +1,130 @@
+<template>
+  <script src="assets/vendor/gsap-3.14.2.min.js"></script>
+  <style>
+      @font-face { font-family: "Montserrat"; font-weight: 400; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 600; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 700; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 800; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 900; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-900-normal.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-style: normal;
+        src: url("assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 700; font-style: normal;
+        src: url("assets/fonts/ibm-plex-mono-latin-700-normal.woff2") format("woff2"); }
+      #root {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+      }
+      #root .clip { position: absolute; inset: 0; }
+      #f01-ground { background: #0a0909; }
+      #root .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; }
+
+      #f01-posters img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+      }
+      #f01-shade { background: rgba(10, 9, 9, 0.55); }
+      #f01-type {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 470px;
+        font-weight: 900;
+        text-transform: lowercase;
+        letter-spacing: -0.04em;
+        line-height: 0.88;
+      }
+      #f01-a { display: block; font-size: 132px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 20px; }
+      #f01-b, #f01-c { display: block; font-size: 188px; line-height: 1.02; }
+      #f01-kicker {
+        position: absolute;
+        left: 72px;
+        top: 360px;
+        font-size: 26px;
+        color: #a5f0b1;
+      }
+  </style>
+  <div id="root" data-composition-id="01-looks-like-ai" data-start="0" data-duration="3.749" data-width="1080" data-height="1920">
+    <div id="f01-ground" class="clip" data-start="0" data-duration="3.749" data-track-index="0"></div>
+    <div id="f01-posters" class="clip" data-start="0" data-duration="3.749" data-track-index="1">
+      <img id="f01-p0" src="assets/generic-ai-poster-for-a-bike-rental-stoc.webp" alt="" />
+      <img id="f01-p1" src="assets/generic-ai-poster-for-a-burger-restauran.webp" alt="" />
+      <img id="f01-p2" src="assets/generic-ai-poster-for-a-gym-stock-templa.webp" alt="" />
+    </div>
+    <div id="f01-shade" class="clip" data-start="0" data-duration="3.749" data-track-index="2"></div>
+    <div id="f01-stage" class="clip" data-start="0" data-duration="3.749" data-track-index="3">
+      <div id="f01-kicker" class="mono">Generic prompt</div>
+      <div id="f01-type">
+        <span id="f01-a">your</span>
+        <span id="f01-b">ai</span>
+        <span id="f01-c">content…</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "01-looks-like-ai";
+      const DUR = 3.349;
+      const tl = gsap.timeline({ paused: true });
+
+      // Hard-cut word flashes on the VO cues (0.05 / 0.40 / 0.62s), each landing with a short settle.
+      [["#f01-a", 0.05], ["#f01-b", 0.4], ["#f01-c", 0.62]].forEach(([sel, t]) => {
+        tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t);
+        tl.fromTo(sel, { scale: 1.12, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.35, ease: "expo.out" }, t);
+      });
+      tl.fromTo("#f01-kicker", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.05);
+
+      // discrete-text-sequence: one driver owns every hard-cut state (text swap, recolor, poster flicker).
+      const A = document.getElementById("f01-a");
+      const B = document.getElementById("f01-b");
+      const C = document.getElementById("f01-c");
+      const posters = [0, 1, 2].map((i) => document.getElementById("f01-p" + i));
+      const POSTERS = [
+        { t: 0.05, i: 0 }, { t: 0.4, i: 1 }, { t: 0.62, i: 2 },
+        { t: 1.66, i: 0 }, { t: 2.03, i: 1 }, { t: 2.34, i: 2 },
+      ];
+      function stateAt(t) {
+        let p = -1;
+        for (const s of POSTERS) if (t >= s.t) p = s.i;
+        return {
+          a: t >= 1.66 ? "looks like" : "your",
+          c: t >= 2.52 ? "content." : "content…",
+          mint: t >= 2.34,
+          poster: p,
+        };
+      }
+      const driver = { t: 0 };
+      tl.fromTo(driver, { t: 0 }, {
+        t: DUR,
+        duration: DUR,
+        ease: "none",
+        onUpdate: () => {
+          const s = stateAt(driver.t);
+          A.textContent = s.a;
+          C.textContent = s.c;
+          B.style.color = C.style.color = s.mint ? "#a5f0b1" : "#ffffff";
+          posters.forEach((el, i) => (el.style.opacity = i === s.poster ? "0.42" : "0"));
+          // sine-wave-loop, low-amplitude register: subtle jitter on the held mint line only (t >= 2.6s)
+          const j = driver.t >= 2.6 ? Math.sin((driver.t - 2.6) * 38) : 0;
+          gsap.set([B, C], { x: j * 1.6, y: j * -1.1 });
+        },
+      }, 0);
+      // The in-place swap lands with a snap of its own.
+      tl.fromTo("#f01-a", { scale: 1.08 }, { scale: 1, duration: 0.3, ease: "expo.out", immediateRender: false }, 1.66);
+      tl.fromTo(["#f01-b", "#f01-c"], { scale: 1.05 }, { scale: 1, duration: 0.3, ease: "expo.out", immediateRender: false }, 2.34);
+      tl.set({}, {}, DUR);
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

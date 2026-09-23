@@ -1,0 +1,153 @@
+<template>
+  <script src="assets/vendor/gsap-3.14.2.min.js"></script>
+  <style>
+      @font-face { font-family: "Montserrat"; font-weight: 400; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 600; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 700; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 800; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 900; font-style: normal;
+        src: url("assets/fonts/montserrat-latin-900-normal.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-style: normal;
+        src: url("assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 700; font-style: normal;
+        src: url("assets/fonts/ibm-plex-mono-latin-700-normal.woff2") format("woff2"); }
+      #root {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+      }
+      #root .clip { position: absolute; inset: 0; }
+      #f06-ground { background: #0a0909; }
+      #root .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; }
+
+      #f06-head {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        top: 340px;
+        text-align: center;
+        font-weight: 900;
+        font-size: 150px;
+        line-height: 1.04;
+        letter-spacing: -0.045em;
+        text-transform: lowercase;
+      }
+      #f06-line1 { display: block; }
+      #f06-line1 span { display: inline-block; }
+      #f06-free { display: block; color: #a5f0b1; }
+      #f06-center {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 840px;
+        height: 200px;
+      }
+      #f06-logo {
+        position: absolute;
+        left: 170px;
+        top: 38px;
+        width: 740px;
+        height: 130px;
+        will-change: transform;
+      }
+      #f06-btn {
+        position: absolute;
+        left: 110px;
+        right: 110px;
+        top: 30px;
+        height: 140px;
+        border-radius: 16px;
+        background: #a5f0b1;
+        color: #0a0909;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 50px;
+        letter-spacing: -0.02em;
+        will-change: transform;
+      }
+      #f06-ripple {
+        position: absolute;
+        left: 560px;
+        top: 106px;
+        width: 120px;
+        height: 120px;
+        margin: -60px 0 0 -60px;
+        border-radius: 50%;
+        border: 4px solid #a5f0b1;
+        opacity: 0;
+      }
+      #f06-url {
+        position: absolute;
+        left: 40px;
+        right: 40px;
+        top: 1120px;
+        text-align: center;
+        font-weight: 800;
+        font-size: 56px;
+        letter-spacing: -0.02em;
+      }
+      #f06-tag { position: absolute; left: 40px; right: 40px; top: 1220px; text-align: center; font-size: 24px; color: #cccccc; }
+      #f06-cursor { position: absolute; left: 0; top: 0; width: 64px; height: 80px; will-change: transform; }
+  </style>
+  <div id="root" data-composition-id="06-cta" data-start="0" data-duration="4.715" data-width="1080" data-height="1920">
+    <div id="f06-ground" class="clip" data-start="0" data-duration="4.715" data-track-index="0"></div>
+    <div id="f06-stage" class="clip" data-start="0" data-duration="4.715" data-track-index="1">
+      <div id="f06-head">
+        <span id="f06-line1"><span id="f06-w1">grab</span> <span id="f06-w2">all</span> <span id="f06-w3">15.</span></span>
+        <span id="f06-free">free.</span>
+      </div>
+      <div id="f06-center">
+        <img id="f06-logo" src="assets/logo-8fccc9a2.svg" alt="Cruz Creative" />
+        <div id="f06-btn">Send me the 15 prompts →</div>
+        <div id="f06-ripple"></div>
+      </div>
+      <div id="f06-url">freeprompts.cruzcreative.net</div>
+      <div id="f06-tag" class="mono">Free forever · Instant download · No spam</div>
+      <svg id="f06-cursor" viewBox="0 0 32 40" aria-hidden="true">
+        <path d="M2 2 L2 32 L10 25 L15 37 L21 34.5 L16 23 L27 23 Z" fill="#ffffff" stroke="#0a0909" stroke-width="2.2" stroke-linejoin="round" />
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "06-cta";
+      const DUR = 4.715;
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1 — the wordmark holds center; the headline builds per word on the VO.
+      tl.fromTo("#f06-logo", { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 0.0);
+      [["#f06-w1", 0.05], ["#f06-w2", 0.41], ["#f06-w3", 0.7]].forEach(([sel, t]) =>
+        tl.fromTo(sel, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, t),
+      );
+
+      // Scene 2 — on "free": the mint line lands and the mark CONDENSES into the CTA at the same
+      // center (scale-swap-transition; smooth, no overshoot on the morph).
+      tl.fromTo("#f06-free", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 1.17);
+      tl.fromTo("#f06-logo", { scale: 1, opacity: 1 }, { scale: 0.55, opacity: 0, duration: 0.45, ease: "power3.in", immediateRender: false }, 1.25);
+      tl.fromTo("#f06-btn", { scale: 0.55, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "power3.out" }, 1.45);
+
+      // Scene 3 — the URL rises as it is spoken; the cursor arrives on a decelerating path,
+      // landing a little off the button's geometric center.
+      tl.fromTo("#f06-url", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 2.1);
+      tl.fromTo("#f06-cursor", { x: 980, y: 1560, opacity: 0 }, { x: 590, y: 962, opacity: 1, duration: 0.9, ease: "power3.out" }, 2.15);
+
+      // Scene 4 — cursor-click-ripple + press-release-spring: cursor and button compress together,
+      // spring back, a mint ripple expands from the click point.
+      const CLICK = 3.1;
+      tl.fromTo(["#f06-cursor", "#f06-btn"], { scale: 1 }, { scale: 0.93, duration: 0.08, ease: "none", immediateRender: false }, CLICK);
+      tl.fromTo(["#f06-cursor", "#f06-btn"], { scale: 0.93 }, { scale: 1, duration: 0.4, ease: "back.out(2.2)", immediateRender: false }, CLICK + 0.08);
+      tl.fromTo("#f06-ripple", { scale: 0.2, opacity: 0.9 }, { scale: 3.2, opacity: 0, duration: 0.65, ease: "power2.out", immediateRender: false }, CLICK + 0.04);
+      tl.fromTo("#f06-tag", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 3.35);
+      tl.set({}, {}, DUR);
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
