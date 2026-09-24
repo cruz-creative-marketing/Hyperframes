@@ -3,7 +3,7 @@
 set -euo pipefail
 S=~/.claude/skills/product-launch-video/scripts
 python3 scripts/build-frames.py
-python3 scripts/estimate-word-timings.py > /dev/null   # fetch-sfx rewrites audio_meta.json without words
+python3 scripts/word-timings.py > /dev/null   # fetch-sfx rewrites audio_meta.json without words
 node $S/captions.mjs build --storyboard ./STORYBOARD.md --audio-meta ./audio_meta.json --hyperframes . --out ./caption_groups.json
 python3 scripts/fix-caption-fonts.py
 node $S/assemble-index.mjs --storyboard ./STORYBOARD.md --hyperframes .

@@ -112,16 +112,16 @@
       tl.fromTo("#f03-hero-img", { scale: 1.0 }, { scale: 1.08, duration: DUR, ease: "power1.inOut" }, 0);
 
       // Card 1 — wordmark: ONE slide-up crossfade on "Cruz Creative".
-      tl.fromTo("#f03-logo", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.05);
+      tl.fromTo("#f03-logo", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.07);
 
       // Card 2 — "15" then "client-tested prompts", each on its spoken cue (dynamic-content-sequencing).
-      tl.fromTo("#f03-num", { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 1.84);
-      tl.fromTo("#f03-sub-1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 2.03);
-      tl.fromTo("#f03-sub-2", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 2.4);
+      tl.fromTo("#f03-num", { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 1.87);
+      tl.fromTo("#f03-sub-1", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 2.22);
+      tl.fromTo("#f03-sub-2", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 2.75);
 
       // Card 3 — "free." hard-cuts in on the VO (discrete-text-sequence: instant state change), then holds.
-      tl.fromTo("#f03-free", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 3.95);
-      tl.fromTo("#f03-free", { scale: 1.1 }, { scale: 1, duration: 0.35, ease: "expo.out", immediateRender: false }, 3.95);
+      tl.fromTo("#f03-free", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 3.96);
+      tl.fromTo("#f03-free", { scale: 1.1 }, { scale: 1, duration: 0.35, ease: "expo.out", immediateRender: false }, 3.96);
       tl.set({}, {}, DUR);
       window.__timelines[ID] = tl;
     })();

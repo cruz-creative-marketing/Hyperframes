@@ -1,0 +1,38 @@
+[
+  {
+    "text": "Grab",
+    "start": 0.06,
+    "end": 0.44,
+    "id": "w0"
+  },
+  {
+    "text": "all",
+    "start": 0.47,
+    "end": 0.82,
+    "id": "w1"
+  },
+  {
+    "text": "15",
+    "start": 0.82,
+    "end": 1.52,
+    "id": "w2"
+  },
+  {
+    "text": "free",
+    "start": 1.52,
+    "end": 1.6,
+    "id": "w3"
+  },
+  {
+    "text": "at",
+    "start": 2.01,
+    "end": 2.14,
+    "id": "w4"
+  },
+  {
+    "text": "freepromps.cruisecreative.net",
+    "start": 2.14,
+    "end": 4.48,
+    "id": "w5"
+  }
+]

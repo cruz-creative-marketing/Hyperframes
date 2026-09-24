@@ -130,14 +130,14 @@
       tl.fromTo("#f02-q-l", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 0.45);
 
       // Scene 2 — "better prompt." appends in mint as the right card arrives from the right wing.
-      tl.fromTo("#f02-h2", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 1.15);
-      tl.fromTo("#f02-right", { x: 560, rotateY: -TILT - 14, opacity: 0 }, { x: 0, rotateY: -TILT, opacity: 1, duration: 0.75, ease: "power3.out" }, 1.15);
-      tl.fromTo("#f02-q-r", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 1.5);
+      tl.fromTo("#f02-h2", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.69);
+      tl.fromTo("#f02-right", { x: 560, rotateY: -TILT - 14, opacity: 0 }, { x: 0, rotateY: -TILT, opacity: 1, duration: 0.75, ease: "power3.out" }, 0.69);
+      tl.fromTo("#f02-q-r", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 1.05);
 
       // Scene 3 — badges punctuate (spring-pop-entrance, the lone overshoot); the generic side dims.
-      tl.fromTo("#f02-pill-l", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, 2.1);
-      tl.fromTo("#f02-card-l img", { opacity: 1 }, { opacity: 0.45, duration: 0.5, ease: "power2.out" }, 2.1);
-      tl.fromTo("#f02-pill-r", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.8)" }, 2.9);
+      tl.fromTo("#f02-pill-l", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, 2.0);
+      tl.fromTo("#f02-card-l img", { opacity: 1 }, { opacity: 0.45, duration: 0.5, ease: "power2.out" }, 2.0);
+      tl.fromTo("#f02-pill-r", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.8)" }, 2.84);
       tl.set({}, {}, DUR);
       window.__timelines[ID] = tl;
     })();

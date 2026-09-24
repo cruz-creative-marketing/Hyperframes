@@ -1,0 +1,62 @@
+[
+  {
+    "text": "built",
+    "start": 0.1,
+    "end": 0.46,
+    "id": "w0"
+  },
+  {
+    "text": "from",
+    "start": 0.46,
+    "end": 0.82,
+    "id": "w1"
+  },
+  {
+    "text": "real",
+    "start": 0.82,
+    "end": 1.18,
+    "id": "w2"
+  },
+  {
+    "text": "client",
+    "start": 1.18,
+    "end": 1.62,
+    "id": "w3"
+  },
+  {
+    "text": "work,",
+    "start": 1.75,
+    "end": 2.2,
+    "id": "w4"
+  },
+  {
+    "text": "already",
+    "start": 2.21,
+    "end": 2.52,
+    "id": "w5"
+  },
+  {
+    "text": "used",
+    "start": 2.52,
+    "end": 2.86,
+    "id": "w6"
+  },
+  {
+    "text": "by",
+    "start": 2.95,
+    "end": 3.06,
+    "id": "w7"
+  },
+  {
+    "text": "50-plus",
+    "start": 3.06,
+    "end": 3.79,
+    "id": "w8"
+  },
+  {
+    "text": "businesses.",
+    "start": 3.88,
+    "end": 4.6,
+    "id": "w9"
+  }
+]

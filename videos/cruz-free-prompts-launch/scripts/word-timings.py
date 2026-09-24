@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
-"""Estimate word timings for the Kokoro narration (no Whisper available offline).
+"""Word timings for the Kokoro narration.
+
+Preferred source: Whisper transcripts in assets/voice/NN.words.json (from
+`npx hyperframes transcribe assets/voice/NN.wav`); their timings are kept and
+the display text below replaces Whisper's spelling word-for-word.
+Fallback when a transcript is missing:
 
 Each line is split into phrases; ffmpeg silencedetect finds the pauses, and each
 phrase is mapped onto one speech segment. Words are spread through their segment
 by character length. Display text is normalised for captions (numbers, URL).
-Run from the project root: python3 scripts/estimate-word-timings.py
+Run from the project root: python3 scripts/word-timings.py
 """
 import json, re, subprocess
 
@@ -36,9 +41,19 @@ def speech_segments(path, total):
         segs.append([cur, total])
     return segs
 
+import os
 meta = json.load(open("audio_meta.json"))
 for v in meta["voices"]:
     phrases = LINES[v["frame"]]
+    tpath = f"assets/voice/{v['frame']:02d}.words.json"
+    flat = [w if isinstance(w, str) else w[0] for p in phrases for w in p]
+    if os.path.exists(tpath):
+        tw = json.load(open(tpath))
+        if len(tw) == len(flat):
+            v["words"] = [{"text": t, "start": w["start"], "end": w["end"]} for t, w in zip(flat, tw)]
+            print(v["frame"], "whisper ->", " ".join(f'{w["text"]}@{w["start"]}' for w in v["words"]))
+            continue
+        print(v["frame"], f"whisper word count {len(tw)} != {len(flat)}; estimating")
     segs = speech_segments(v["path"], v["duration_s"])
     if len(segs) != len(phrases):  # fall back: one span over all speech
         segs = [[segs[0][0], segs[-1][1]]] * 1

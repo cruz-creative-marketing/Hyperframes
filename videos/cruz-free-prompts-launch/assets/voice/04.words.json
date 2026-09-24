@@ -1,0 +1,86 @@
+[
+  {
+    "text": "on-brand",
+    "start": 0.09,
+    "end": 0.75,
+    "id": "w0"
+  },
+  {
+    "text": "graphics.",
+    "start": 0.75,
+    "end": 1.54,
+    "id": "w1"
+  },
+  {
+    "text": "A",
+    "start": 1.54,
+    "end": 1.62,
+    "id": "w2"
+  },
+  {
+    "text": "voice",
+    "start": 1.62,
+    "end": 1.94,
+    "id": "w3"
+  },
+  {
+    "text": "that",
+    "start": 1.94,
+    "end": 2.21,
+    "id": "w4"
+  },
+  {
+    "text": "sounds",
+    "start": 2.21,
+    "end": 2.64,
+    "id": "w5"
+  },
+  {
+    "text": "like",
+    "start": 2.64,
+    "end": 3,
+    "id": "w6"
+  },
+  {
+    "text": "you.",
+    "start": 3,
+    "end": 3.43,
+    "id": "w7"
+  },
+  {
+    "text": "Product",
+    "start": 3.58,
+    "end": 3.95,
+    "id": "w8"
+  },
+  {
+    "text": "shots",
+    "start": 3.95,
+    "end": 4.27,
+    "id": "w9"
+  },
+  {
+    "text": "that",
+    "start": 4.29,
+    "end": 4.54,
+    "id": "w10"
+  },
+  {
+    "text": "save",
+    "start": 4.55,
+    "end": 4.82,
+    "id": "w11"
+  },
+  {
+    "text": "you",
+    "start": 4.82,
+    "end": 5.02,
+    "id": "w12"
+  },
+  {
+    "text": "thousands.",
+    "start": 5.14,
+    "end": 5.76,
+    "id": "w13"
+  }
+]

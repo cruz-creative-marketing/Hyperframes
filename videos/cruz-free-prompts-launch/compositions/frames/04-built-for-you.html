@@ -132,8 +132,8 @@
       tl.fromTo("#f04-t1b", { y: 40, rotation: 6, opacity: 0 }, { y: 0, rotation: 6, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.12);
       tl.fromTo("#f04-t1a", { y: 40, rotation: -4, opacity: 0 }, { y: 0, rotation: -4, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.2);
       arrive("#f04-c1", ["#f04-c1 .f04-num", "#f04-c1 .f04-title"], 0.05);
-      arrive("#f04-c2", ["#f04-c2 .f04-num", "#f04-c2 .f04-title", "#f04-code"], 1.63);
-      arrive("#f04-c3", ["#f04-t3", "#f04-c3 .f04-num", "#f04-c3 .f04-title"], 3.59);
+      arrive("#f04-c2", ["#f04-c2 .f04-num", "#f04-c2 .f04-title", "#f04-code"], 1.54);
+      arrive("#f04-c3", ["#f04-t3", "#f04-c3 .f04-num", "#f04-c3 .f04-title"], 3.58);
 
       // asr-keyword-glow: the payoff phrase lights up on "thousands" on its word cue (attack → decay → rest in mint).
       const glow = document.getElementById("f04-glow");
@@ -142,10 +142,10 @@
         glow.style.color = env.g > 0.02 ? "#a5f0b1" : "#ffffff";
         glow.style.textShadow = "0 0 " + (28 * env.g).toFixed(1) + "px rgba(165,240,177," + (0.85 * env.g).toFixed(2) + ")";
       };
-      tl.fromTo(env, { g: 0 }, { g: 1, duration: 0.12, ease: "power2.out", onUpdate: paint }, 5.22);
-      tl.fromTo(env, { g: 1 }, { g: 0.35, duration: 0.5, ease: "power2.inOut", onUpdate: paint, immediateRender: false }, 5.34);
-      tl.fromTo(glow, { scale: 1 }, { scale: 1.06, duration: 0.12, ease: "power2.out" }, 5.22);
-      tl.fromTo(glow, { scale: 1.06 }, { scale: 1, duration: 0.45, ease: "power3.out", immediateRender: false }, 5.34);
+      tl.fromTo(env, { g: 0 }, { g: 1, duration: 0.12, ease: "power2.out", onUpdate: paint }, 5.14);
+      tl.fromTo(env, { g: 1 }, { g: 0.35, duration: 0.5, ease: "power2.inOut", onUpdate: paint, immediateRender: false }, 5.26);
+      tl.fromTo(glow, { scale: 1 }, { scale: 1.06, duration: 0.12, ease: "power2.out" }, 5.14);
+      tl.fromTo(glow, { scale: 1.06 }, { scale: 1, duration: 0.45, ease: "power3.out", immediateRender: false }, 5.26);
       tl.set({}, {}, DUR);
       window.__timelines[ID] = tl;
     })();
