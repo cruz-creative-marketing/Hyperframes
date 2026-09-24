@@ -1,5 +1,9 @@
 {
-  "bgm": null,
+  "bgm": {
+    "path": "assets/bgm/bed.wav",
+    "query": "musicgen: punchy confident modern electronic, social-promo energy, clean driving beat, no vocals",
+    "duration_s": 26.646
+  },
   "bgm_pending": false,
   "voices": [
     {
