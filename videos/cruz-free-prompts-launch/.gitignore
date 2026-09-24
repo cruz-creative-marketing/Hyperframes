@@ -1,4 +1,5 @@
-renders/
+renders/*
+!renders/video.mp4
 snapshots/*.png
 .hyperframes/frame-packets/
 node_modules/
